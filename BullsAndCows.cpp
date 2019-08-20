@@ -3,6 +3,7 @@
 #include <map>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 #define TMap std::map
 
 
@@ -46,18 +47,19 @@ string BullCowGame::GetRandomWord()
 {
     string words[] = { "random", "game", "habit", "coding","champion","caption",
         "box",  "math", "swing", "jungle", "house", "picture", "table","smoke","cream",
-        "project", "think", "graphics","ilter","dream","rice","update","store","peach",
+        "project", "think", "graphics","filter","dream","rice","update","store","peach",
         "company", "cow", "milk", "tea", "job", "cake","wish","water","mouse","candy",
-        "movie", "story", "myth","duck","verb","black","ight","leopard","time","peanut",
+        "movie", "story", "myth","duck","verb","black","fight","leopard","time","peanut",
         "article", "music", "script",  "key", "sun", "age", "joy", "volume","trip",
-        "orange", "planet",  "outside","boat","sound","orest", "action","land","rapid",
-        "ast","capture","cage","suitcase","chair","blanket","minute","hour","shoe",
-        "keyboard", "display", "cornlakes","pen","bread","yoghurt","ocean","night",
+        "orange", "planet",  "outside","boat","sound","forest", "action","land","rapid",
+        "fast","capture","cage","suitcase","chair","blanket","minute","hour","shoe",
+        "keyboard", "display", "cornflakes","pen","bread","yoghurt","ocean","night",
         "computer", "string", "super","woman","lamp","salt","insult","work","guest",
-        "ish", "lizard", "mouth", "triangle","vector","singer","shop","bike","lea",
-        "cup",  "company", "marketing", "video","ormat","touch","single","quiet",
+        "fish", "lizard", "mouth", "triangle","vector","singer","shop","bike","leaf",
+        "cup", "company", "marketing", "video","format","touch","single","quiet",
         "lamp",  "menu", "pencil", "palindrome","jacket","cloud","phone","king","number",
-        "side","slide","slope","rame","rating","dynamic","country","city","plate","grape"};
+        "side","slide","slope","rame","rating","dynamic","country","city","plate","grape",
+	     "email","search","keyboard","studio","maker","panter","lock"};
     
     srand(time(0));
     int size = sizeof(words)/sizeof(std::string);

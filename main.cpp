@@ -117,7 +117,7 @@ void PrintGameSummary()
 
 void PrintIntro()
 {
-    cout << "Welcome to Bulls and Cows, a un word game!\n";
+    cout << "Welcome to Bulls and Cows, a fun word game!\n";
     cout << endl;
     cout << "          }___{         ___ " << endl;
     cout << "          (o o)        (o o) " << endl;
@@ -130,10 +130,10 @@ void PrintIntro()
 void PrintInstructions()
 {
     cout<<"An ISOGRAM is a word with no repeating letters."<<endl;
-    cout<<"You need to guess a given isogram o a given length.\n";
-    cout<<"Each BULL means you have guessed a correct letter in the correct place o the word.\n";
-    cout<<"Each COW means you have guessed a correct letter in the wrong place o the word."<<endl;
-    cout<<"The goal o the game is to guess the word within the given tries. Good luck!"<<endl;
+    cout<<"You need to guess a given isogram of a given length.\n";
+    cout<<"Each BULL means you have guessed a correct letter in the correct place of the word.\n";
+    cout<<"Each COW means you have guessed a correct letter in the wrong place of the word."<<endl;
+    cout<<"The goal of the game is to guess the word within the given tries. Good luck!"<<endl;
     cout<<endl;
 }
 
