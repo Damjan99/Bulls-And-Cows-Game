@@ -1,40 +1,40 @@
-#include "FBullsAndCows.hpp"
+#include "BullsAndCows.hpp"
 #include <iostream>
 #include <map>
 #include <cstdlib>
 #include <ctime>
 #define TMap std::map
-using FString = std::string;
-using int32 = int;
-FString FBullCowGame::GetHiddenWord()
+
+
+string BullCowGame::GetHiddenWord()
 {
     return MyHiddenWord;
 }
 
-FBullCowGame::FBullCowGame()
+BullCowGame::BullCowGame()
 {
     Reset();
 }
 
-bool FBullCowGame::IsGameWon() const
+bool BullCowGame::IsGameWon() const
 {
     return bGameIsWon;
     
 }
 
-int32 FBullCowGame::GetMaxTries() const
+int BullCowGame::GetMaxTries() const
 {
-    TMap<int32, int32> WordLengthToMaxTries{ {3,8}, {4,10}, {5,12}, {6,14}, {7,16} , {8,18} , {9,20}, {10,25} };
+    TMap<int, int> WordLengthToMaxTries{ {3,8}, {4,10}, {5,12}, {6,14}, {7,16} , {8,18} , {9,20}, {10,25} };
     return WordLengthToMaxTries[MyHiddenWord.length()];
 }
 
-int32 FBullCowGame::GetCurrentTry() 
+int BullCowGame::GetCurrentTry() 
 {
   
     return MyCurrentTry;
 }
 
-void FBullCowGame::Reset()
+void BullCowGame::Reset()
 {
     MyHiddenWord=GetRandomWord();
     MyCurrentTry = 1;
@@ -42,59 +42,59 @@ void FBullCowGame::Reset()
     return;
 }
 
-FString FBullCowGame::GetRandomWord()
+string BullCowGame::GetRandomWord()
 {
-    FString words[] = { "random", "game", "habit", "coding","champion","caption",
+    string words[] = { "random", "game", "habit", "coding","champion","caption",
         "box",  "math", "swing", "jungle", "house", "picture", "table","smoke","cream",
-        "project", "think", "graphics","filter","dream","rice","update","store","peach",
+        "project", "think", "graphics","ilter","dream","rice","update","store","peach",
         "company", "cow", "milk", "tea", "job", "cake","wish","water","mouse","candy",
-        "movie", "story", "myth","duck","verb","black","fight","leopard","time","peanut",
+        "movie", "story", "myth","duck","verb","black","ight","leopard","time","peanut",
         "article", "music", "script",  "key", "sun", "age", "joy", "volume","trip",
-        "orange", "planet",  "outside","boat","sound","forest", "action","land","rapid",
-        "fast","capture","cage","suitcase","chair","blanket","minute","hour","shoe",
-        "keyboard", "display", "cornflakes","pen","bread","yoghurt","ocean","night",
+        "orange", "planet",  "outside","boat","sound","orest", "action","land","rapid",
+        "ast","capture","cage","suitcase","chair","blanket","minute","hour","shoe",
+        "keyboard", "display", "cornlakes","pen","bread","yoghurt","ocean","night",
         "computer", "string", "super","woman","lamp","salt","insult","work","guest",
-        "fish", "lizard", "mouth", "triangle","vector","singer","shop","bike","leaf",
-        "cup",  "company", "marketing", "video","format","touch","single","quiet",
+        "ish", "lizard", "mouth", "triangle","vector","singer","shop","bike","lea",
+        "cup",  "company", "marketing", "video","ormat","touch","single","quiet",
         "lamp",  "menu", "pencil", "palindrome","jacket","cloud","phone","king","number",
-        "side","slide","slope","frame","rating","dynamic","country","city","plate","grape"};
+        "side","slide","slope","rame","rating","dynamic","country","city","plate","grape"};
     
     srand(time(0));
-    int32 size = sizeof(words)/sizeof(std::string);
-    FString NewWord = words[rand() % size];
+    int size = sizeof(words)/sizeof(std::string);
+    string NewWord = words[rand() % size];
     return NewWord;
 }
 
-EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
+GuessStatus BullCowGame::CheckGuessValidity(string Guess) const
 {
     if (!IsIsogram(Guess))
     {
-        return EGuessStatus::Not_Isogram;
+        return GuessStatus::Not_Isogram;
     }
     
    else if (!IsLowercase(Guess))
     {
-        return EGuessStatus::Not_Lowercase;
+        return GuessStatus::Not_Lowercase;
     }
     
     else if (Guess.length() != GetHiddenWordLength())
     {
-        return EGuessStatus::Wrong_Length;
+        return GuessStatus::Wrong_Length;
     }
     
     else
     {
-        return EGuessStatus::OK;
+        return GuessStatus::OK;
     }
 }
 
-FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
+BullCowCount BullCowGame::SubmitGuess(string Guess)
 {
     MyCurrentTry++;
-    FBullCowCount BullCowCount;
-    int32 WordLength = MyHiddenWord.length();
+    BullCowCount BullCowCount;
+    int WordLength = MyHiddenWord.length();
   
-    for (int32 i = 0; i < WordLength; i++)
+    for (int i = 0; i < WordLength; i++)
     {
             if (Guess[i] == MyHiddenWord[i])
             {
@@ -116,12 +116,12 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
     return BullCowCount;
 }
 
-int32 FBullCowGame::GetHiddenWordLength() const
+int BullCowGame::GetHiddenWordLength() const
 {
     return MyHiddenWord.length();
 }
 
-bool FBullCowGame::IsIsogram(FString Word) const
+bool BullCowGame::IsIsogram(string Word) const
 {
     if (Word.length() <= 1)
         return true;
@@ -139,7 +139,7 @@ bool FBullCowGame::IsIsogram(FString Word) const
    return true;
 }
 
-bool FBullCowGame::IsLowercase(FString Word) const
+bool BullCowGame::IsLowercase(string Word) const
 {
     for (auto Letter : Word)
     {
